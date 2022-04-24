@@ -41,9 +41,9 @@ data_structures = json.loads(data)
 
 ### developmental history element did not match other data files for eventname (devhx was named visit) ###
 ### Changed the name of the column to match to integrate data ###
-file = pd.read_csv(p.path_data + 'dhx01.txt', delimiter='\t')
+file = pd.read_csv(p.path_data + 'dhx01.txt', delimiter='\t', low_memory=False,)
 dhx = file.rename(columns={'visit':'eventname'})
-dhx_change = dhx.to_csv(p.path_dhx, sep="\t", index=None, low_memory=False)
+dhx_change = dhx.to_csv(p.path_dhx, sep="\t", index=None)
 
 common = ['subjectkey', 'interview_date', 'interview_age', 'sex', 'eventname']
 
